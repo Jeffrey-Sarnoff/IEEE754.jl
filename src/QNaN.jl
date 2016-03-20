@@ -1,6 +1,13 @@
 module QNaN
 
+import Base:convert
+
 export qnan
+
+convert(::Type{Signed}, x::Type{Float16}) = abs(x)<=typemax(Int16) ? trunc(Int16, x) : throw(ArgumentError("too large"))
+convert(::Type{Signed}, x::Type{Float32}) = abs(x)<=typemax(Int32) ? trunc(Int32, x) : throw(ArgumentError("too large"))
+convert(::Type{Signed}, x::Type{Float64}) = abs(x)<=typemax(Int64) ? trunc(Int64, x) : throw(ArgumentError("too large"))
+
 
 for (FL, I, UI, UPos, UNeg) in [(:Float64, :Int64, :UInt64, :0x7ff8000000000000, :0xfff8000000000000),
                                 (:Float32, :Int32, :UInt32, :0x7fc00000, :0xffc00000),
@@ -21,7 +28,11 @@ for (FL, I, UI, UPos, UNeg) in [(:Float64, :Int64, :UInt64, :0x7ff8000000000000,
       function qnan(fp::$(FL))
           u = reinterpret($(UI), fp)
           if !isqnan(u)
-              throw(ArgumentError("The value $(fp) ($(u)) is not a QNaN."))
+              if fp == trunc(fp)
+                  return qnan(convert(Signed,fp))
+              else    
+                  throw(ArgumentError("The value $(fp) ($(u)) is not a valid QNaN payload."))
+              end
           end
           a = u & ~$(UNeg)
           b =  reinterpret($(I),a)
