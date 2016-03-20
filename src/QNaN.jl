@@ -11,9 +11,7 @@ for (FL, I, UI, UPos, UNeg) in [(:Float64, :Int64, :UInt64, :0x7ff8000000000000,
 
       function qnan(si::$(I))
           u = reinterpret($(UI), abs(si))
-          if (u & ~$(UPos)) == 0
-              throw(ArgumentError("The magnitude of n cannot be 0, that NaN is used by Julia."))
-          elseif (u > ~$(UNeg)) # 2^51-1
+          if (u > ~$(UNeg)) # 2^51-1
               throw(ArgumentError("The magnitude of n $(si) exceeds available QNaN."))
           end
           u |= ((si > 0) ? $(UPos) : $(UNeg))
