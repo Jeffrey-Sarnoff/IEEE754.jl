@@ -11,5 +11,7 @@ export negate, copySign,
     qnan, qnan64, qnan32, qnan16
     
 include("QNAN.jl")
+using QNaN
+
 
 end # module
