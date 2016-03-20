@@ -7,6 +7,9 @@ export negate, copySign,
     totalOrder, totalOrderMag,
     minNum, maxNum, minNumMag, maxNumMag,
     # extensions
-    minmax, minmaxMag, maxmin, maxminMag
+    minmax, minmaxMag, maxmin, maxminMag,
+    qnan, qnan64, qnan32, qnan16
     
+include("QNAN.jl")
+
 end # module
