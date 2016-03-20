@@ -31,7 +31,7 @@ for (FL, I, UI, UPos, UNeg) in [(:Float64, :Int64, :UInt64, :0x7ff8000000000000,
               if fp == trunc(fp)
                   return qnan(convert(Signed,fp))
               else    
-                  throw(ArgumentError("The value $(fp) ($(u)) is not a valid QNaN payload."))
+                  throw(ArgumentError("The value $(fp) is not a valid QNaN payload."))
               end
           end
           a = u & ~$(UNeg)
