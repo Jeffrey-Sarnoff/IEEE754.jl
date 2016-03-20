@@ -1,5 +1,7 @@
 module QNaN
 
+export qnan
+
 for (FL, I, UI, UPos, UNeg) in [(:Float64, :Int64, :UInt64, :0x7ff8000000000000, :0xfff8000000000000),
                                 (:Float32, :Int32, :UInt32, :0x7fc00000, :0xffc00000),
                                 (:Float16, :Int16, :UInt16, :0x7e00, :0xfe00) ]
@@ -40,10 +42,5 @@ Module QNaN
 qnan(`si`::{Int16|32|64}) generates a quiet NaN using `si` for the payload
 qnan(`fp`::FloatingPoint) recovers the signed payload from a quiet NaN `fp`
 """ -> qnan
-
-@doc """
-isqnan(`fp`::FloatingPoint) true iff `fp` is any QNaN
-""" -> isqnan
-
 
 end # module
