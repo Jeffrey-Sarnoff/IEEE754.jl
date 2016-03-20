@@ -11,7 +11,8 @@
     fffffffffffffffe :                 -1.#QNAN Quiet NaN    
     ffffffffffffffff :                 -1.#QNAN Quiet NaN
 
-    there are 2^52 possible Quiet NaN payloads, 2^51 | signbit(qNaN)==false and 2^51 | signbit(qNaN)==true
+    there are 2^52 possible Quiet NaN payloads
+         2^51 | signbit(qNaN)==false and 2^51 | signbit(qNaN)==true
               ( 0x7fffffffffffffff - 0x7ff8000000000000 - 0x01 + 0x02 ) `pos` QNaNs 2^51
               ( 0xffffffffffffffff - 0xfff8000000000000 - 0x01 + 0x02 ) `neg` QNaNs 2^51
               
@@ -28,7 +29,8 @@
     0xfffffffe     -1.#QNAN
     0xffffffff     -1.#QNAN
     
-    there are 2^23 possible Quiet NaN32 payloads, 2^22 | signbit(qNaN32)==false and 2^22 | signbit(qNaN32)==true
+    there are 2^23 possible Quiet NaN32 payloads
+         2^22 | signbit(qNaN32)==false and 2^22 | signbit(qNaN32)==true
     
 
 #### for Binary16
@@ -43,7 +45,8 @@
     0xfffe         -1.#QNAN
     0xffff         -1.#QNAN
         
-    there are 2^10 possible Quiet NaN16 payloads, 2^9 | signbit(qNaN16)==false and 2^9 | signbit(qNaN16)==true
+    there are 2^10 possible Quiet NaN16 payloads
+         2^9 | signbit(qNaN16)==false and 2^9 | signbit(qNaN16)==true
     
     
     
