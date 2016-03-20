@@ -1,6 +1,6 @@
 module IEEE_754_2008
 
-include("QNAN.jl")
+include("QNaN.jl")
 using QNaN
 
 export negate, copySign, 
