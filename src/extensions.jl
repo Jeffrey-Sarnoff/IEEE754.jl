@@ -1,21 +1,46 @@
 # faster than builtin, same behavior
-minmax{T<:AbstractFloat}(a::T, b::T) = ifelse(a<b, (a,b), ifelse(isnan(b),(a,b),(b,a)))
 
-maxmin{T<:AbstractFloat}(a::T, b::T) = ifelse(a>b, (a,b), ifelse(isnan(b),(a,b),(b,a)))
+@inline fast_minmax{T<:AbstractFloat}(a::T, b::T) = ifelse(a<b,(a,b),(b,a))
+@inline fast_maxmin{T<:AbstractFloat}(a::T, b::T) = ifelse(a>b,(a,b),(b,a))
 
-function minmax{T<:AbstractFloat}(a::T, b::T, c::T)
-    b,c = ifelse(b>c,(c,b),(b,c))
-    a,c = ifelse(a>c,(c,a),(a,c))
-    a,b = ifelse(a>b,(b,a),(a,b)) 
+@inline minmax{T<:AbstractFloat}(a::T, b::T) = ifelse(a<b, (a,b), ifelse(isnan(b),(a,b),(b,a)))
+@inline maxmin{T<:AbstractFloat}(a::T, b::T) = ifelse(a>b, (a,b), ifelse(isnan(b),(a,b),(b,a)))
+
+
+function fast_minmax{T<:AbstractFloat}(a::T, b::T, c::T)
+    b,c = fast_minmax(b,c)
+    a,c = fast_minmax(a,c)
+    a,b = fast_minmax(a,b)
+    a,b,c
+end
+function fast_maxmin{T<:AbstractFloat}(a::T, b::T, c::T)
+    b,c = fast_maxmin(b,c)
+    a,c = fast_maxmin(a,c)
+    a,b = fast_maxmin(a,b)
     a,b,c
 end
 
+function minmax{T<:AbstractFloat}(a::T, b::T, c::T)
+    b,c = minmax(b,c)
+    a,c = minmax(a,c)
+    a,b = minmax(a,b)
+    a,b,c
+end
+function maxmin{T<:AbstractFloat}(a::T, b::T, c::T)
+    b,c = maxmin(b,c)
+    a,c = maxmin(a,c)
+    a,b = maxmin(a,b)
+    a,b,c
+end
+
+#=
 function maxmin{T<:AbstractFloat}(a::T, b::T, c::T)
     b,c = ifelse(b<c,(c,b),(b,c))
     a,c = ifelse(a<c,(c,a),(a,c))
     a,b = ifelse(a<b,(b,a),(a,b)) 
     a,b,c
 end
+=#
 
 function minmax{T<:AbstractFloat}(a::T,b::T,c::T,d::T)
     a,b = ifelse(a>b,(b,a),(a,b)); c,d = ifelse(c>d,(d,c),(c,d))
