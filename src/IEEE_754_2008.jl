@@ -1,6 +1,6 @@
 module IEEE_754_2008
 
-import Base: minmax, precision, ldexp, frexp
+import Base: min, max, minmax, precision, ldexp, frexp
 
 include("ieee.jl")
 include("extensions.jl")
@@ -16,7 +16,7 @@ export negate, copySign,
     totalOrder, totalOrderMag,
     minNum, maxNum, minNumMag, maxNumMag,
     # extensions
-    minmax, minmaxMag, maxmin, maxminMag,
+    min, max, minmax, minmaxMag, maxmin, maxminMag,
     # ulpufp
     epsilon, eta, ulp, ufp, sulp, sufp,
     # QNaN
