@@ -8,9 +8,9 @@ Siegfried M. Rump
 in BIT, May 18, 2011
 =#
 
-import Base: precision, ldexp
+# import Base: precision, ldexp
 
-export epsilon, eta, ufp, ulp, sufp, sulp
+# export epsilon, eta, ufp, ulp, sufp, sulp
 
 for F in (:Float64, :Float32, :Float16)
    @eval begin
