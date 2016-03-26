@@ -8,7 +8,7 @@ Siegfried M. Rump
 in BIT, May 18, 2011
 =#
 
-# import Base: precision, ldexp
+import Base: precision, ldexp
 
 # export epsilon, eta, ufp, ulp, sufp, sulp
 
