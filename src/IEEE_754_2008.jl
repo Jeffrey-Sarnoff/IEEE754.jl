@@ -1,6 +1,6 @@
 module IEEE_754_2008
 
-import Base: precision, ldexp, frexp
+import Base: minmax, precision, ldexp, frexp
 
 include("ieee.jl")
 include("extensions.jl")
