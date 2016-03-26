@@ -16,7 +16,8 @@ export negate, copySign,
     totalOrder, totalOrderMag,
     minNum, maxNum, minNumMag, maxNumMag,
     # extensions
-    min, max, minmax, minmaxMag, maxmin, maxminMag,
+    min, max, minmax, maxmin, fast_minmax, fast_maxmin,
+    minmaxMag, maxmin, maxminMag,
     # ulpufp
     epsilon, eta, ulp, ufp, sulp, sufp,
     # QNaN
