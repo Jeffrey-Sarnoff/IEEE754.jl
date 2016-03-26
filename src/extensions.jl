@@ -21,7 +21,7 @@ function fast_maxmin{T<:AbstractFloat}(a::T, b::T, c::T)
 end
 
 function minmax{T<:AbstractFloat}(a::T, b::T, c::T)
-    if isnan(a+b+c)
+    if isnan(/4a+b/4-c/4)
         b,c = minmax(b,c)
         a,c = minmax(a,c)
         a,b = minmax(a,b)
@@ -34,7 +34,7 @@ function minmax{T<:AbstractFloat}(a::T, b::T, c::T)
 end
 
 function maxmin{T<:AbstractFloat}(a::T, b::T, c::T)
-    if isnan(a+b+c)
+    if isnan(a/4+b/4-c/4)
         b,c = maxmin(b,c)
         a,c = maxmin(a,c)
         a,b = maxmin(a,b)
