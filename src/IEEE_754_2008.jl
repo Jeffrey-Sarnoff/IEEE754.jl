@@ -1,5 +1,9 @@
 module IEEE_754_2008
 
+include("ieee.jl")
+include("extensions.jl")
+include("ulpufp.jl")
+
 include("QNaN.jl")
 using QNaN
 
