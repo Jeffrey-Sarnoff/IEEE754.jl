@@ -11,6 +11,7 @@ export negate, copySign,
     minNum, maxNum, minNumMag, maxNumMag,
     # extensions
     minmax, minmaxMag, maxmin, maxminMag,
+    ulp, ufp,
     qnan
 
 
