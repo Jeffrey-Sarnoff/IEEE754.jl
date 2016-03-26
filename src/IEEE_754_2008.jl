@@ -1,5 +1,7 @@
 module IEEE_754_2008
 
+import Base: precision, ldexp, frexp
+
 include("ieee.jl")
 include("extensions.jl")
 include("ulpufp.jl")
