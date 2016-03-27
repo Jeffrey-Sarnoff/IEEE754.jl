@@ -7,8 +7,8 @@ include("extensions.jl")
 include("ulpufp.jl")
 
 # include bypasses precompilation
-modulename = :QNaN; @eval import $modulename
-using QNaN
+# modulename = :QNaN; @eval begin import $modulename; using $modulename end
+modulename = :QNaN; @eval importall $modulename
 
 export negate, copySign, 
     isSignMinus, isNormal, isFinite, is Zero, isSubnormal, isInfinite, isNaN,
