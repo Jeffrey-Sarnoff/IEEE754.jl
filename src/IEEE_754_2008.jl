@@ -6,7 +6,8 @@ include("ieee.jl")
 include("extensions.jl")
 include("ulpufp.jl")
 
-include("QNaN.jl")
+# include bypasses precompilation
+modulename = :QNaN; @eval import $modulename
 using QNaN
 
 export negate, copySign, 
