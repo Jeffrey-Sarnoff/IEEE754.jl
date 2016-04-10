@@ -9,7 +9,7 @@ include("ulpufp.jl")
 # modulename = :QNaN; @eval begin import $modulename; using $modulename end
 modulename = :QNaN; @eval importall $modulename
 modulename = :SignificantBits; @eval importall $modulename
-modulename = :FloatSafeInts; @eval importall $modulename
+
 
 export negate, copySign, 
     isSignMinus, isNormal, isFinite, is Zero, isSubnormal, isInfinite, isNaN,
