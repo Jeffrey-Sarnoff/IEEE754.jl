@@ -23,10 +23,10 @@ typealias StdFloat Union{Float64,Float32,Float16}
 typealias StdInt   Union{Int64,Int32,Int16}
 
 isfloatsafe{T<:StdInt}(x::T)   = abs(x) < (safemax(T) + one(T))
-isfloatsafe{T<:StdFloat}(x::T) = ((x % 1) == zero(T)) & (abs(x) < (safemax(T) + one(T))
+isfloatsafe{T<:StdFloat}(x::T) = ((x % 1) == zero(T)) & (abs(x) < (safemax(T) + one(T)))
 
 isintsafe{T<:StdInt}(x::T)     = abs(x) < (safemax(T) + one(T))
-isintsafe{T<:StdFloat}(x::T)   = ((x % 1) == zero(T)) & (abs(x) < (safemax(T) + one(T))
+isintsafe{T<:StdFloat}(x::T)   = ((x % 1) == zero(T)) & (abs(x) < (safemax(T) + one(T)))
 
 @doc"""
 _safemax(FloatType|IntType)_
