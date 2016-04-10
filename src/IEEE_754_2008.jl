@@ -22,7 +22,7 @@ export negate, copySign,
     # ulpufp
     epsilon, eta, ulp, ufp, sulp, sufp,
     # QNaN
-    qnan
+    qnan,
     # SignificantBits
     significand_bits, significant_bits
 
