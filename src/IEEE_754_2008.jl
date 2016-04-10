@@ -26,7 +26,5 @@ export negate, copySign,
     qnan,
     # SignificantBits
     significand_bits, significant_bits
-    # FloatSafeInts
-    safemax, safemin, isfloatsafe, isintsafe
 
 end # module
