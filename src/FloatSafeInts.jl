@@ -28,4 +28,31 @@ isfloatsafe{T<:StdFloat}(x::T) = ((x % 1) == zero(T)) & (abs(x) < (safemax(T)) +
 isintsafe{T<:StdInt}(x::T)     = abs(x) < (safemax(T)) + one(T))
 isintsafe{T<:StdFloat}(x::T)   = ((x % 1) == zero(T)) & (abs(x) < (safemax(T)) + one(T))
 
+"""
+_safemax(FloatType|IntType)_
+
+The largest positive integer with sizeof() matching given type such that it
+and its predecessor interconvert with sizeof matching float exactly.
+"""->safemax
+
+"""
+_safemin(FloatType|IntType)_
+
+The largest negative integer with sizeof() matching given type such that it
+and its predecessor interconvert with sizeof matching float exactly.
+"""->safemin
+
+"""
+_isfloatsafe(FloatValue|IntValue)_
+
+Tests that the abs(value) and its predecessor interconvert to IntValue|FloatValue exactly.
+"""->isfloatsafe
+
+"""
+_isintsafe(IntValue|FloatValue)_
+
+Tests that the abs(value) and its predecessor interconvert to FloatValue|IntValue exactly.
+"""->isintsafe
+
+
 end # FloatSafeInts
